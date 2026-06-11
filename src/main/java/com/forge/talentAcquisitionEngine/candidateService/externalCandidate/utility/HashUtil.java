@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.utility;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.utility;
 
 import org.springframework.stereotype.Component;
 

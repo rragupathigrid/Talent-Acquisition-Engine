@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
@@ -33,4 +33,8 @@ public class CertificationDetailDto {
     @Column(name = "certificate_file_path")
     @URL(message = "Invalid file path")
     private String certificateFilePath;
+
+    @Size(max = 500)
+    @URL(message = "Invalid URL")
+    private String credentialUrl;
 }

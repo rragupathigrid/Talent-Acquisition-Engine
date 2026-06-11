@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.offerService.offer.integration;
+package com.forge.talentacquisitionengine.offerService.offer.integration;
 
 public class DocuSignClient {
 }

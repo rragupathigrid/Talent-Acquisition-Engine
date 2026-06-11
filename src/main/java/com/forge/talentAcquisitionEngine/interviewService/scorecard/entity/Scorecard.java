@@ -1,9 +1,9 @@
-package com.forge.talentAcquisitionEngine.interviewService.scorecard.entity;
+package com.forge.talentacquisitionengine.interviewService.scorecard.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.interviewService.interview.entity.Interview;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.enums.Recommendation;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.interviewService.interview.entity.Interview;
+import com.forge.talentacquisitionengine.interviewService.scorecard.enums.Recommendation;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;

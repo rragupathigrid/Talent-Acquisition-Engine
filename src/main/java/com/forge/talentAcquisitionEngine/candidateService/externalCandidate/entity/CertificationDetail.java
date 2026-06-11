@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -48,4 +48,9 @@ public class CertificationDetail {
     @Column(name = "certificate_file_path")
     @URL(message = "Invalid file path")
     private String certificateFilePath;
+
+    @Size(max = 500)
+    @Column(name = "credential_url")
+    @URL(message = "Invalid URL")
+    private String credentialUrl;
 }

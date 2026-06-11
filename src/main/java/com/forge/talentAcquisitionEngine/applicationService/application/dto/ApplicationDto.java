@@ -1,8 +1,8 @@
-package com.forge.talentAcquisitionEngine.applicationService.application.dto;
+package com.forge.talentacquisitionengine.applicationService.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.forge.talentAcquisitionEngine.applicationService.application.enums.Stage;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.enums.Source;
+import com.forge.talentacquisitionengine.applicationService.application.enums.Stage;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.enums.Source;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;

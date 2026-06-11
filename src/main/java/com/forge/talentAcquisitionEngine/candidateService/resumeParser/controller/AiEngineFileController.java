@@ -1,8 +1,8 @@
-package com.forge.talentAcquisitionEngine.candidateService.resumeParser.controller;
+package com.forge.talentacquisitionengine.candidateService.resumeParser.controller;
 
-import com.forge.talentAcquisitionEngine.candidateService.resumeParser.model.ParsedResumeDTO;
-import com.forge.talentAcquisitionEngine.candidateService.resumeParser.service.ResumeParseService;
-import com.forge.talentAcquisitionEngine.candidateService.resumeParser.service.ResumeStoreService;
+import com.forge.talentacquisitionengine.candidateService.resumeParser.model.ParsedResumeDTO;
+import com.forge.talentacquisitionengine.candidateService.resumeParser.service.ResumeParseService;
+import com.forge.talentacquisitionengine.candidateService.resumeParser.service.ResumeStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

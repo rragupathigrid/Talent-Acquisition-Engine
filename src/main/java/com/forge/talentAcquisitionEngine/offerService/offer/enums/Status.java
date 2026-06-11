@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.offerService.offer.enums;
+package com.forge.talentacquisitionengine.offerService.offer.enums;
 
 public enum Status {
     DRAFT,

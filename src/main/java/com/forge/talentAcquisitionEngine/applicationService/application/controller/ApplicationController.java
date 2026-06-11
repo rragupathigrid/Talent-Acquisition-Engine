@@ -1,7 +1,7 @@
-package com.forge.talentAcquisitionEngine.applicationService.application.controller;
+package com.forge.talentacquisitionengine.applicationService.application.controller;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.dto.ApplicationDto;
-import com.forge.talentAcquisitionEngine.applicationService.application.service.ApplicationService;
+import com.forge.talentacquisitionengine.applicationService.application.dto.ApplicationDto;
+import com.forge.talentacquisitionengine.applicationService.application.service.ApplicationService;
 
 import lombok.RequiredArgsConstructor;
 

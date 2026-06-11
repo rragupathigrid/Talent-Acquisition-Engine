@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.applicationService.application.enums;
+package com.forge.talentacquisitionengine.applicationService.application.enums;
 
 public enum Stage {
     APPLIED,

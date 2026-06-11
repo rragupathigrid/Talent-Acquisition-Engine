@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine;
+package com.forge.talentacquisitionengine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

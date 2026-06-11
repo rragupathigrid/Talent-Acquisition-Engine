@@ -1,9 +1,9 @@
-package com.forge.talentAcquisitionEngine.interviewService.interview.mapper;
+package com.forge.talentacquisitionengine.interviewService.interview.mapper;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.interviewService.interview.dto.InterviewDto;
-import com.forge.talentAcquisitionEngine.interviewService.interview.entity.Interview;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.entity.Scorecard;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.interviewService.interview.dto.InterviewDto;
+import com.forge.talentacquisitionengine.interviewService.interview.entity.Interview;
+import com.forge.talentacquisitionengine.interviewService.scorecard.entity.Scorecard;
 
 import java.util.ArrayList;
 import java.util.List;

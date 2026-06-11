@@ -1,7 +1,7 @@
-package com.forge.talentAcquisitionEngine.offerService.offer.repository;
+package com.forge.talentacquisitionengine.offerService.offer.repository;
 
-import com.forge.talentAcquisitionEngine.offerService.offer.entity.Offer;
-import com.forge.talentAcquisitionEngine.offerService.offer.enums.Status;
+import com.forge.talentacquisitionengine.offerService.offer.entity.Offer;
+import com.forge.talentacquisitionengine.offerService.offer.enums.Status;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,17 +25,17 @@ public interface OfferRepository
     /**
      * Find offers by status
      */
-    Page<Offer> findByStatus(
-            Status status,
+    Page<Offer> findByOfferStatus(
+            Status offerStatus,
             Pageable pageable
     );
 
     /**
      * Find offers by application + status
      */
-    Page<Offer> findByApplicationIdAndStatus(
+    Page<Offer> findByApplicationIdAndOfferStatus(
             Long applicationId,
-            Status status,
+            Status offerStatus,
             Pageable pageable
     );
 
@@ -64,8 +64,8 @@ public interface OfferRepository
     /**
      * Count offers by status
      */
-    long countByStatus(
-            Status status
+    long countByOfferStatus(
+            Status offerStatus
     );
 
     /**
@@ -78,7 +78,7 @@ public interface OfferRepository
     /**
      * Check DocuSign envelope existence
      */
-    boolean existsByDocusignEnvelopeId(
-            String docusignEnvelopeId
+    boolean existsByDocuSignId(
+            String docuSignId
     );
 }

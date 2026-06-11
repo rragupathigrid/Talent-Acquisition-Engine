@@ -1,7 +1,7 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.enums.Source;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.enums.Source;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
@@ -95,9 +95,10 @@ public class ExternalCandidate {
     @OneToMany(mappedBy = "candidate", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<SkillDetail> skills = new HashSet<>();
 
-    @Valid
-    @OneToMany(mappedBy = "candidate", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ExperienceDetail experienceDetail;
+    @OneToMany(mappedBy = "candidate",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<ExperienceDetail> experienceDetails = new HashSet<>();
 
     @Min(value = 0)
     @Column(name = "current_ctc")
@@ -113,6 +114,14 @@ public class ExternalCandidate {
 
     @Column(name = "willing_to_relocate")
     private Boolean willingToRelocate;
+
+    @Size(max = 1000)
+    @Column(name = "company_name", length = 100)
+    private String companyName;
+
+    @Size(max = 1000)
+    @Column(name = "designation", length = 100)
+    private String designation;
 
     @Size(max = 1000)
     @Column(name = "free_notes", columnDefinition = "TEXT")

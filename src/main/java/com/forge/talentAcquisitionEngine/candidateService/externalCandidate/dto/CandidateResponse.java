@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.dto;
 
 import lombok.*;
 

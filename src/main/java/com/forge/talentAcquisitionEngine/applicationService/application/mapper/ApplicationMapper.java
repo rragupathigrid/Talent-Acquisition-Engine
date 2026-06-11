@@ -1,9 +1,9 @@
-package com.forge.talentAcquisitionEngine.applicationService.application.mapper;
+package com.forge.talentacquisitionengine.applicationService.application.mapper;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.dto.ApplicationDto;
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.ExternalCandidate;
-import com.forge.talentAcquisitionEngine.interviewService.interview.entity.Interview;
+import com.forge.talentacquisitionengine.applicationService.application.dto.ApplicationDto;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.ExternalCandidate;
+import com.forge.talentacquisitionengine.interviewService.interview.entity.Interview;
 
 import java.util.ArrayList;
 import java.util.List;

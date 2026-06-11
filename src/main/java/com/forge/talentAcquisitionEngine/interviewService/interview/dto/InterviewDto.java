@@ -1,8 +1,8 @@
-package com.forge.talentAcquisitionEngine.interviewService.interview.dto;
+package com.forge.talentacquisitionengine.interviewService.interview.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.forge.talentAcquisitionEngine.interviewService.interview.enums.Status;
-import com.forge.talentAcquisitionEngine.interviewService.interview.enums.Type;
+import com.forge.talentacquisitionengine.interviewService.interview.enums.Status;
+import com.forge.talentacquisitionengine.interviewService.interview.enums.Type;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;

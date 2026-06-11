@@ -1,4 +1,4 @@
-package com.forge.talent_acquisition_engine;
+package com.forge.talentacquisitionengine;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

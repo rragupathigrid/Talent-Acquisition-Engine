@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.interviewService.scorecard.enums;
+package com.forge.talentacquisitionengine.interviewService.scorecard.enums;
 
 public enum Recommendation {
     STRONG_HIRE,

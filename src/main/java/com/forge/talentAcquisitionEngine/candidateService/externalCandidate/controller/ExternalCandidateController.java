@@ -1,8 +1,8 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.controller;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.controller;
 
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto.CandidateResponse;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto.ExternalCandidateDto;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.service.ExternalCandidateService;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.dto.CandidateResponse;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.dto.ExternalCandidateDto;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.service.ExternalCandidateService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

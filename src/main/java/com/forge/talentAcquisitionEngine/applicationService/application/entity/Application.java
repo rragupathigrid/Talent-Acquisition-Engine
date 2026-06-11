@@ -1,10 +1,10 @@
-package com.forge.talentAcquisitionEngine.applicationService.application.entity;
+package com.forge.talentacquisitionengine.applicationService.application.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.forge.talentAcquisitionEngine.applicationService.application.enums.Stage;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.ExternalCandidate;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.enums.Source;
-import com.forge.talentAcquisitionEngine.interviewService.interview.entity.Interview;
+import com.forge.talentacquisitionengine.applicationService.application.enums.Stage;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.ExternalCandidate;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.enums.Source;
+import com.forge.talentacquisitionengine.interviewService.interview.entity.Interview;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
@@ -131,6 +131,10 @@ public class Application {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "hired_at")
     private LocalDateTime hiredAt;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "reapply_allowed_after")
+    private LocalDateTime reapplyAllowedAfter;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "rejected_at")

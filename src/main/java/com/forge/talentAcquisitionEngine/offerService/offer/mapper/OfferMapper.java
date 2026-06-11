@@ -1,8 +1,8 @@
-package com.forge.talentAcquisitionEngine.offerService.offer.mapper;
+package com.forge.talentacquisitionengine.offerService.offer.mapper;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.offerService.offer.dto.OfferDto;
-import com.forge.talentAcquisitionEngine.offerService.offer.entity.Offer;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.offerService.offer.dto.OfferDto;
+import com.forge.talentacquisitionengine.offerService.offer.entity.Offer;
 
 public class OfferMapper {
 

@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

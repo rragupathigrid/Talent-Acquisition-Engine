@@ -1,7 +1,7 @@
-package com.forge.talentAcquisitionEngine.applicationService.application.repository;
+package com.forge.talentacquisitionengine.applicationService.application.repository;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.applicationService.application.enums.Stage;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.applicationService.application.enums.Stage;
 import io.lettuce.core.dynamic.annotation.Param;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -132,8 +132,8 @@ public interface ApplicationRepository extends JpaRepository<Application, Long> 
             SELECT a
             FROM Application a
             WHERE a.currentStage IN (
-                com.forge.talentAcquisitionEngine.applicationService.application.enums.Stage.INTERVIEW,
-                com.forge.talentAcquisitionEngine.applicationService.application.enums.Stage.FINAL_ROUND
+                com.forge.talentacquisitionengine.applicationService.application.enums.Stage.INTERVIEW,
+                com.forge.talentacquisitionengine.applicationService.application.enums.Stage.FINAL_ROUND
             )
             """)
   Page<Application> findInterviewPipeline(
@@ -148,7 +148,7 @@ public interface ApplicationRepository extends JpaRepository<Application, Long> 
             SELECT a
             FROM Application a
             WHERE a.currentStage =
-            com.forge.talentAcquisitionEngine.applicationService.application.enums.Stage.OFFERED
+            com.forge.talentacquisitionengine.applicationService.application.enums.Stage.OFFERED
             """)
   Page<Application> findOfferPipeline(
       Pageable pageable

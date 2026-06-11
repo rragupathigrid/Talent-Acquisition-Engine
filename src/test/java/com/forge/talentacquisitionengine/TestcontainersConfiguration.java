@@ -1,4 +1,4 @@
-package com.forge.talent_acquisition_engine;
+package com.forge.talentacquisitionengine;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;

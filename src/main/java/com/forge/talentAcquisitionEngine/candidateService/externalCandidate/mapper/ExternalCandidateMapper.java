@@ -1,13 +1,14 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.mapper;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.mapper;
 
 
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto.CertificationDetailDto;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto.EducationDetailDto;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto.ExternalCandidateDto;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.CertificationDetail;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.EducationDetail;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.ExternalCandidate;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.SkillDetail;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.dto.CertificationDetailDto;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.dto.EducationDetailDto;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.dto.ExternalCandidateDto;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.Address;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.CertificationDetail;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.EducationDetail;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.ExternalCandidate;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.SkillDetail;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -29,7 +30,17 @@ public class ExternalCandidateMapper {
         entity.setPhoneNumber(dto.getPhoneNumber());
         entity.setDateOfBirth(dto.getDateOfBirth());
         entity.setGender(dto.getGender());
-        entity.setAddress(dto.getAddress());
+        if (dto.getAddress() != null) {
+            Address address = new Address();
+            address.setStreet1(dto.getAddress());
+            address.setStreet2("");
+            address.setCity("");
+            address.setState("");
+            address.setCountry("");
+            address.setZipCode(0L);
+            address.setCandidate(entity);
+            entity.setAddress(address);
+        }
         entity.setTotalExperienceYears(dto.getTotalExperienceYears());
         entity.setTotalGapYears(dto.getTotalGapYears());
         entity.setCompanyName(dto.getCompanyName());
@@ -90,7 +101,9 @@ public class ExternalCandidateMapper {
         dto.setPhoneNumber(entity.getPhoneNumber());
         dto.setDateOfBirth(entity.getDateOfBirth());
         dto.setGender(entity.getGender());
-        dto.setAddress(entity.getAddress());
+        if (entity.getAddress() != null) {
+            dto.setAddress(entity.getAddress().getStreet1());
+        }
         dto.setTotalExperienceYears(entity.getTotalExperienceYears());
         dto.setTotalGapYears(entity.getTotalGapYears());
         dto.setCompanyName(entity.getCompanyName());

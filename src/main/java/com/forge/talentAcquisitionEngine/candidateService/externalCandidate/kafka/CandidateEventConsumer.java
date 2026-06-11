@@ -1,6 +1,6 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.kafka;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.kafka;
 
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.event.CandidateCreatedEvent;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.event.CandidateCreatedEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 

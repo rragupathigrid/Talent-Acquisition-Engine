@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.enums;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.enums;
 
 public enum Social {
     GITHUB,

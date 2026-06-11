@@ -1,8 +1,9 @@
-package com.forge.talentAcquisitionEngine.offerService.offer.controller;
+package com.forge.talentacquisitionengine.offerService.offer.controller;
 
-import com.forge.talentAcquisitionEngine.offerService.offer.entity.Offer;
-import com.forge.talentAcquisitionEngine.offerService.offer.enums.Status;
-import com.forge.talentAcquisitionEngine.offerService.offer.service.OfferServiceImpl;
+import com.forge.talentacquisitionengine.offerService.offer.entity.Offer;
+import com.forge.talentacquisitionengine.offerService.offer.enums.Status;
+import com.forge.talentacquisitionengine.offerService.offer.service.OfferService;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class OfferController {
 
-    private final OfferServiceImpl.OfferService offerService;
+    private final OfferService offerService;
 
     /**
      * Create Offer
@@ -128,6 +129,7 @@ public class OfferController {
 
         return ResponseEntity.ok(rejectedOffer);
     }
+
 
     /**
      * Expire Offer

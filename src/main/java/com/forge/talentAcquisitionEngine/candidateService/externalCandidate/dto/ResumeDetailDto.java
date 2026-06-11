@@ -1,6 +1,6 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.dto;
 
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.ExternalCandidate;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.ExternalCandidate;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;

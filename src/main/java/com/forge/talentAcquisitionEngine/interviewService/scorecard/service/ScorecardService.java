@@ -1,14 +1,16 @@
-package com.forge.talentAcquisitionEngine.interviewService.scorecard.service;
+package com.forge.talentacquisitionengine.interviewService.scorecard.service;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.applicationService.application.repository.ApplicationRepository;
-import com.forge.talentAcquisitionEngine.interviewService.interview.entity.Interview;
-import com.forge.talentAcquisitionEngine.interviewService.interview.repository.InterviewRepository;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.dto.ScorecardRequestDto;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.dto.ScorecardResponseDto;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.dto.ScorecardSummaryDto;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.entity.Scorecard;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.repository.ScorecardRepository;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.applicationService.application.repository.ApplicationRepository;
+import com.forge.talentacquisitionengine.interviewService.interview.entity.Interview;
+import com.forge.talentacquisitionengine.interviewService.interview.repository.InterviewRepository;
+import com.forge.talentacquisitionengine.interviewService.scorecard.dto.ScorecardRequestDto;
+import com.forge.talentacquisitionengine.interviewService.scorecard.dto.ScorecardResponseDto;
+import com.forge.talentacquisitionengine.interviewService.scorecard.dto.ScorecardSummaryDto;
+import com.forge.talentacquisitionengine.interviewService.scorecard.entity.Scorecard;
+import com.forge.talentacquisitionengine.interviewService.scorecard.repository.ScorecardRepository;
+import com.forge.talentacquisitionengine.interviewService.interview.enums.Type;
+import com.forge.talentacquisitionengine.interviewService.interview.enums.Status;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,11 +27,32 @@ public class ScorecardService {
     private final InterviewRepository interviewRepository;
     private final ApplicationRepository applicationRepository;
 
+
     @Transactional
     public ScorecardResponseDto submitScorecard(Long interviewId, ScorecardRequestDto dto) {
         Interview interview = interviewRepository.findById(interviewId)
                 .orElseThrow(() -> new EntityNotFoundException("Interview not found with id: " + interviewId));
+        if (!interview.getInterviewers()
+                .contains(dto.getInterviewerId())) {
 
+            throw new IllegalArgumentException(
+                    "Interviewer "
+                            + dto.getInterviewerId()
+                            + " is not assigned to interview "
+                            + interviewId
+            );
+        }
+        if (interview.getStatus() != Status.COMPLETED) {
+
+            throw new IllegalArgumentException(
+                    "Scorecards can only be submitted for completed interviews"
+            );
+        }
+
+        validateCompetencies(
+                interview.getInterviewType(),
+                dto.getCompetencyRatings()
+        );
         Application application = applicationRepository.findById(dto.getApplicationId())
                 .orElseThrow(() -> new EntityNotFoundException("Application not found with id: " + dto.getApplicationId()));
 
@@ -93,7 +116,7 @@ public class ScorecardService {
         return ScorecardResponseDto.builder()
                 .scorecardId(sc.getId())
                 .interviewId(sc.getInterview().getId())
-                .applicationId(sc.getApplication().getApplicationId())
+                .applicationId(sc.getApplication().getId())
                 .interviewerId(sc.getInterviewerId())
                 .score(sc.getScore())
                 .overallScore(sc.getOverallScore())
@@ -113,5 +136,54 @@ public class ScorecardService {
                 .score(sc.getScore())
                 .recommendation(sc.getRecommendation())
                 .build();
+    }
+
+    private void validateCompetencies(
+            Type interviewType,
+            String competencyRatings
+    ) {
+
+        competencyRatings = competencyRatings.toLowerCase();
+
+        switch (interviewType) {
+
+            case TECHNICAL -> {
+                if (!competencyRatings.contains("coding")
+                        || !competencyRatings.contains("dsa")
+                        || !competencyRatings.contains("systemdesign")) {
+                    throw new IllegalArgumentException(
+                            "Technical interview requires coding, dsa and system design ratings"
+                    );
+                }
+            }
+
+            case BEHAVIOURAL -> {
+                if (!competencyRatings.contains("communication")
+                        || !competencyRatings.contains("leadership")
+                        || !competencyRatings.contains("collaboration")) {
+                    throw new IllegalArgumentException(
+                            "Behavioural interview requires communication, leadership and collaboration ratings"
+                    );
+                }
+            }
+
+            case CULTURAL_FIT -> {
+                if (!competencyRatings.contains("culturefit")
+                        || !competencyRatings.contains("ownership")
+                        || !competencyRatings.contains("teamwork")) {
+                    throw new IllegalArgumentException(
+                            "Cultural fit interview requires cultureFit, ownership and teamwork ratings"
+                    );
+                }
+            }
+
+            case FINAL -> {
+                if (!competencyRatings.contains("overallassessment")) {
+                    throw new IllegalArgumentException(
+                            "Final round requires overallAssessment rating"
+                    );
+                }
+            }
+        }
     }
 }

@@ -1,14 +1,14 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.service;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.service;
 
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto.CandidateResponse;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.dto.ExternalCandidateDto;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.ExternalCandidate;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.event.CandidateCreatedEvent;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.kafka.CandidateEventProducer;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.mapper.ExternalCandidateMapper;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.repository.ExternalCandidateRepository;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.utility.HashUtil;
-import com.forge.talentAcquisitionEngine.exception.BusinessException;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.dto.CandidateResponse;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.dto.ExternalCandidateDto;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.ExternalCandidate;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.event.CandidateCreatedEvent;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.kafka.CandidateEventProducer;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.mapper.ExternalCandidateMapper;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.repository.ExternalCandidateRepository;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.utility.HashUtil;
+import com.forge.talentacquisitionengine.exception.BusinessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

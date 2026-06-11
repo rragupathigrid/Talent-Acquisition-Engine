@@ -1,12 +1,12 @@
-package com.forge.talentAcquisitionEngine.applicationService.application.service;
+package com.forge.talentacquisitionengine.applicationService.application.service;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.dto.ApplicationDto;
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.applicationService.application.enums.Stage;
-import com.forge.talentAcquisitionEngine.applicationService.application.mapper.ApplicationMapper;
-import com.forge.talentAcquisitionEngine.applicationService.application.repository.ApplicationRepository;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.ExternalCandidate;
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.repository.ExternalCandidateRepository;
+import com.forge.talentacquisitionengine.applicationService.application.dto.ApplicationDto;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.applicationService.application.enums.Stage;
+import com.forge.talentacquisitionengine.applicationService.application.mapper.ApplicationMapper;
+import com.forge.talentacquisitionengine.applicationService.application.repository.ApplicationRepository;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.ExternalCandidate;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.repository.ExternalCandidateRepository;
 
 import lombok.RequiredArgsConstructor;
 

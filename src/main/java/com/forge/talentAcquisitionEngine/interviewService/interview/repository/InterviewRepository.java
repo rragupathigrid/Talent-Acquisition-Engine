@@ -1,8 +1,8 @@
-package com.forge.talentAcquisitionEngine.interviewService.interview.repository;
+package com.forge.talentacquisitionengine.interviewService.interview.repository;
 
-import com.forge.talentAcquisitionEngine.interviewService.interview.entity.Interview;
-import com.forge.talentAcquisitionEngine.interviewService.interview.enums.Status;
-import com.forge.talentAcquisitionEngine.interviewService.interview.enums.Type;
+import com.forge.talentacquisitionengine.interviewService.interview.entity.Interview;
+import com.forge.talentacquisitionengine.interviewService.interview.enums.Status;
+import com.forge.talentacquisitionengine.interviewService.interview.enums.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

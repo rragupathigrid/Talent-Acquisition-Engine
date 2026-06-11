@@ -1,6 +1,6 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.repository;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.repository;
 
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity.ExternalCandidate;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.entity.ExternalCandidate;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -1,6 +1,6 @@
-package com.forge.talentAcquisitionEngine.candidateService.externalCandidate.entity;
+package com.forge.talentacquisitionengine.candidateService.externalCandidate.entity;
 
-import com.forge.talentAcquisitionEngine.candidateService.externalCandidate.enums.Social;
+import com.forge.talentacquisitionengine.candidateService.externalCandidate.enums.Social;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

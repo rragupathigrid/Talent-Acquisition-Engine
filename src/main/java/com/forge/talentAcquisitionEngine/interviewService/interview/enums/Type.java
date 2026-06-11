@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.interviewService.interview.enums;
+package com.forge.talentacquisitionengine.interviewService.interview.enums;
 
 public enum Type {
     TECHNICAL,

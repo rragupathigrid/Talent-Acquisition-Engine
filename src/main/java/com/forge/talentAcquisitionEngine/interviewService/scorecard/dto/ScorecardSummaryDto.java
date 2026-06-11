@@ -1,6 +1,6 @@
-package com.forge.talentAcquisitionEngine.interviewService.scorecard.dto;
+package com.forge.talentacquisitionengine.interviewService.scorecard.dto;
 
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.enums.Recommendation;
+import com.forge.talentacquisitionengine.interviewService.scorecard.enums.Recommendation;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

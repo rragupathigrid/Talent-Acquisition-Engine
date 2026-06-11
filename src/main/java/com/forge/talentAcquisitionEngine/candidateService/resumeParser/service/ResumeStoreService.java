@@ -1,4 +1,4 @@
-package com.forge.talentAcquisitionEngine.candidateService.resumeParser.service;
+package com.forge.talentacquisitionengine.candidateService.resumeParser.service;
 
 import org.springframework.web.multipart.MultipartFile;
 

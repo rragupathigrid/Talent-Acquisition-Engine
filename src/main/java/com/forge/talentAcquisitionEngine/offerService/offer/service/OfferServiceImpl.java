@@ -1,10 +1,10 @@
-package com.forge.talentAcquisitionEngine.offerService.offer.service;
+package com.forge.talentacquisitionengine.offerService.offer.service;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.applicationService.application.repository.ApplicationRepository;
-import com.forge.talentAcquisitionEngine.offerService.offer.entity.Offer;
-import com.forge.talentAcquisitionEngine.offerService.offer.enums.Status;
-import com.forge.talentAcquisitionEngine.offerService.offer.repository.OfferRepository;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.applicationService.application.repository.ApplicationRepository;
+import com.forge.talentacquisitionengine.offerService.offer.entity.Offer;
+import com.forge.talentacquisitionengine.offerService.offer.enums.Status;
+import com.forge.talentacquisitionengine.offerService.offer.repository.OfferRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -84,7 +84,7 @@ public class OfferServiceImpl implements OfferService {
         if (applicationId != null && status != null) {
 
             return offerRepository
-                    .findByApplicationIdAndStatus(
+                    .findByApplicationIdAndOfferStatus(
                             applicationId,
                             status,
                             pageable
@@ -109,7 +109,7 @@ public class OfferServiceImpl implements OfferService {
         if (status != null) {
 
             return offerRepository
-                    .findByStatus(
+                    .findByOfferStatus(
                             status,
                             pageable
                     );
@@ -262,58 +262,5 @@ public class OfferServiceImpl implements OfferService {
         offerRepository.delete(offer);
     }
 
-    public static interface OfferService {
 
-        /**
-         * Create Offer
-         */
-        Offer createOffer(Offer offer);
-
-        /**
-         * Get Offer By ID
-         */
-        Offer getOfferById(Long id);
-
-        /**
-         * Get All Offers
-         */
-        Page<Offer> getAllOffers(
-                Long applicationId,
-                Status status,
-                Pageable pageable
-        );
-
-        /**
-         * Update Offer
-         */
-        Offer updateOffer(
-                Long id,
-                Offer offer
-        );
-
-        /**
-         * Send Offer
-         */
-        Offer sendOffer(Long id);
-
-        /**
-         * Accept Offer
-         */
-        Offer acceptOffer(Long id);
-
-        /**
-         * Reject Offer
-         */
-        Offer rejectOffer(Long id);
-
-        /**
-         * Expire Offer
-         */
-        Offer expireOffer(Long id);
-
-        /**
-         * Delete Offer
-         */
-        void deleteOffer(Long id);
-    }
 }

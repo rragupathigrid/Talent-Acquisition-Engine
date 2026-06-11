@@ -1,6 +1,6 @@
-package com.forge.talent_acquisition_engine;
+package com.forge.talentacquisitionengine;
 
-import com.forge.talentAcquisitionEngine.TalentAcquisitionEngineApplication;
+import com.forge.talentacquisitionengine.TalentAcquisitionEngineApplication;
 import org.springframework.boot.SpringApplication;
 
 public class TestTalentAcquisitionEngineApplication {

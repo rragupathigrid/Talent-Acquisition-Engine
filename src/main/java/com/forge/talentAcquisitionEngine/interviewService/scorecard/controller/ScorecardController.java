@@ -1,9 +1,9 @@
-package com.forge.talentAcquisitionEngine.interviewService.scorecard.controller;
+package com.forge.talentacquisitionengine.interviewService.scorecard.controller;
 
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.dto.ScorecardRequestDto;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.dto.ScorecardResponseDto;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.dto.ScorecardSummaryDto;
-import com.forge.talentAcquisitionEngine.interviewService.scorecard.service.ScorecardService;
+import com.forge.talentacquisitionengine.interviewService.scorecard.dto.ScorecardRequestDto;
+import com.forge.talentacquisitionengine.interviewService.scorecard.dto.ScorecardResponseDto;
+import com.forge.talentacquisitionengine.interviewService.scorecard.dto.ScorecardSummaryDto;
+import com.forge.talentacquisitionengine.interviewService.scorecard.service.ScorecardService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,11 +1,14 @@
-package com.forge.talentAcquisitionEngine.interviewService.interview.service;
+package com.forge.talentacquisitionengine.interviewService.interview.service;
 
-import com.forge.talentAcquisitionEngine.applicationService.application.entity.Application;
-import com.forge.talentAcquisitionEngine.applicationService.application.repository.ApplicationRepository;
-import com.forge.talentAcquisitionEngine.interviewService.interview.entity.Interview;
-import com.forge.talentAcquisitionEngine.interviewService.interview.enums.Status;
-import com.forge.talentAcquisitionEngine.interviewService.interview.repository.InterviewRepository;
+import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.applicationService.application.repository.ApplicationRepository;
+import com.forge.talentacquisitionengine.interviewService.interview.entity.Interview;
+import com.forge.talentacquisitionengine.interviewService.interview.enums.Status;
+import com.forge.talentacquisitionengine.interviewService.interview.integration.GoogleCalendarClient;
+import com.forge.talentacquisitionengine.interviewService.interview.repository.InterviewRepository;
+import com.forge.talentacquisitionengine.interviewService.interview.integration.GoogleCalendarResponse;
 import jakarta.persistence.EntityNotFoundException;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +20,7 @@ public class InterviewServiceImpl implements InterviewService {
 
     private final InterviewRepository interviewRepository;
     private final ApplicationRepository applicationRepository;
-
+    private final GoogleCalendarClient googleCalendarClient;
     /**
      * Create Interview
      */
@@ -51,7 +54,22 @@ public class InterviewServiceImpl implements InterviewService {
         /*
          * Save Interview
          */
-        return interviewRepository.save(interview);
+        GoogleCalendarResponse response =
+                googleCalendarClient.createEvent(
+                        interview
+                );
+
+        interview.setCalendarEventId(
+                response.getEventId()
+        );
+
+        interview.setMeetLink(
+                response.getMeetLink()
+        );
+
+        return interviewRepository.save(
+                interview
+        );
     }
 
     /**
@@ -167,6 +185,13 @@ public class InterviewServiceImpl implements InterviewService {
         /*
          * Save Updated Interview
          */
+        if(existingInterview.getCalendarEventId() != null) {
+
+            googleCalendarClient.updateEvent(
+                    existingInterview.getCalendarEventId(),
+                    existingInterview
+            );
+        }
         return interviewRepository.save(existingInterview);
     }
 
@@ -190,6 +215,12 @@ public class InterviewServiceImpl implements InterviewService {
         }
 
         interview.setStatus(Status.CANCELLED);
+        if(interview.getCalendarEventId() != null) {
+
+            googleCalendarClient.deleteEvent(
+                    interview.getCalendarEventId()
+            );
+        }
 
         return interviewRepository.save(interview);
     }
