@@ -2,15 +2,19 @@ package com.forge.talentacquisitionengine.offerService.offer.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.forge.talentacquisitionengine.applicationService.application.entity.Application;
+import com.forge.talentacquisitionengine.offerService.offer.dto.ApprovalStep;
 import com.forge.talentacquisitionengine.offerService.offer.enums.Status;
+import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,6 +31,9 @@ public class Offer {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "application_id", nullable = false)
     private Application application;
+
+    @Column(name = "current_approval_step")
+    private Integer currentApprovalStep = 0;
 
     @NotBlank(message = "Role is required")
     @Size(max = 100, message = "Role must not exceed 100 characters")
@@ -62,18 +69,12 @@ public class Offer {
     @Column(name = "employment_type", nullable = false)
     private String employmentType;
 
-//    @Size(max = 100, message = "Template ID must not exceed 100 characters")
-//    @Column(name = "template_id", length = 100)
-//    private String templateId;
-
-//    @NotBlank(message = "Offer template content is required")
-//    @Size(min = 50, max = 10000, message = "Offer template content must be between 50 and 10000 characters")
-//    @Column(name = "offer_template_content", nullable = false, columnDefinition = "TEXT")
-//    private String offerTemplateContent;
-
-//    @NotBlank(message = "Approval chain is required")
-//    @Column(name = "approval_chain", nullable = false, columnDefinition = "jsonb")
-//    private String approvalChain;
+    @Type(JsonType.class)
+    @Column(
+            name = "approval_chain",
+            columnDefinition = "jsonb"
+    )
+    private List<ApprovalStep> approvalChain;
 
     @Size(max = 100, message = "Approved by must not exceed 100 characters")
     @Column(name = "approved_by")
@@ -82,6 +83,9 @@ public class Offer {
     @Size(max = 100, message = "Rejected by must not exceed 100 characters")
     @Column(name = "rejected_by")
     private String rejectedBy;
+
+    @Column(name = "rejection_reason")
+    private String rejectionReason;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "approved_at")
@@ -112,6 +116,9 @@ public class Offer {
     private void onCreate() {
         if (this.offerStatus == null) {
             this.offerStatus = Status.DRAFT;
+        }
+        if (this.currentApprovalStep == null) {
+            this.currentApprovalStep = 0;
         }
     }
 }

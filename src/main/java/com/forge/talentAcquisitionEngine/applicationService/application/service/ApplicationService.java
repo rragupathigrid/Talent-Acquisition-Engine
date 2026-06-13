@@ -10,19 +10,16 @@ import com.forge.talentacquisitionengine.candidateService.externalCandidate.repo
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ApplicationService {
 
-  @Autowired
   private final ApplicationRepository applicationRepository;
 
   private final ExternalCandidateRepository externalCandidateRepository;

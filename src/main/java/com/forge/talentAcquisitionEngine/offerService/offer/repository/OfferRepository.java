@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
+import java.util.Optional;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -46,6 +46,10 @@ public interface OfferRepository
             LocalDate joiningDate
     );
 
+    List<Offer> findByOfferStatus(
+            Status status
+    );
+
     /**
      * Find offers joining after a date
      */
@@ -59,6 +63,12 @@ public interface OfferRepository
     List<Offer> findByJoiningDateBetween(
             LocalDate startDate,
             LocalDate endDate
+    );
+
+
+
+    Optional<Offer> findByDocuSignId(
+            String docuSignId
     );
 
     /**
